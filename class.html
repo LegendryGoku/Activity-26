@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Classes and this Keyword</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            text-align: center;
+            padding: 30px;
+        }
+
+        .container {
+            background: white;
+            width: 500px;
+            margin: auto;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px gray;
+        }
+
+        h1 {
+            color: darkblue;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin-top: 15px;
+            border: none;
+            background-color: darkblue;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: navy;
+        }
+
+        #output {
+            margin-top: 20px;
+            font-size: 18px;
+            color: green;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>JavaScript Class Example</h1>
+
+        <p>
+            This program explains:
+            <br><br>
+            ✔ Classes in JavaScript
+            <br>
+            ✔ The purpose of <b>this</b> keyword
+        </p>
+
+        <button onclick="showStudent()">Show Student Info</button>
+
+        <div id="output"></div>
+    </div>
+
+    <script>
+
+        // Creating a class
+        class Student {
+
+            // Constructor runs automatically
+            constructor(name, age, grade) {
+
+                // "this" refers to the current object
+                this.name = name;
+                this.age = age;
+                this.grade = grade;
+            }
+
+            // Method inside class
+            displayInfo() {
+
+                return `
+                    Name: ${this.name} <br>
+                    Age: ${this.age} <br>
+                    Grade: ${this.grade}
+                `;
+            }
+        }
+
+        // Function for button click
+        function showStudent() {
+            // Creating an instance of Student class
+            let student1 = new Student("Aarav", 11, "6th Grade");
+            // Displaying student info
+            document.getElementById("output").innerHTML = student1.displayInfo();
+        }
+      
+
+    </script>
+
+</body>
+</html>
