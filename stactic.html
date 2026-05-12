@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Static Methods in JavaScript</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f7fb;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background: white;
+            padding: 30px;
+            width: 400px;
+            border-radius: 12px;
+            box-shadow: 0px 4px 10px rgba(0,0,0,0.2);
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        p {
+            color: #555;
+            font-size: 18px;
+        }
+
+        button {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 15px;
+        }
+
+        button:hover {
+            background: #0056b3;
+        }
+
+        #output {
+            margin-top: 20px;
+            font-weight: bold;
+            color: green;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Static Method Example</h1>
+
+        <p>
+            Static methods belong to the class itself,  
+            not to the object created from the class.
+        </p>
+
+        <button onclick="showMessage()">
+            Run Static Method
+        </button>
+
+        <div id="output"></div>
+    </div>
+
+    <script>
+        let name = "Aarav Goel"; // Global variable
+
+        // Creating a class
+        class Student {
+
+            // Static method
+            static schoolName() {
+                return "Welcome to Bright Future School, " + name + "!";
+            }
+        }
+
+        // Function to access static method
+        function showMessage() {
+
+            // Accessing static method using class name
+            let message = Student.schoolName();
+
+            // Displaying output
+            document.getElementById("output").innerHTML = message;
+        }
+
+    </script>
+
+</body>
+</html>
