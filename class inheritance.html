@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class Inheritance in JavaScript</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #4facfe, #00f2fe);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            width: 500px;
+            text-align: center;
+            box-shadow: 0px 5px 15px rgba(0,0,0,0.2);
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        button {
+            background: #4facfe;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            margin-top: 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #008cdd;
+        }
+
+        #output {
+            margin-top: 20px;
+            padding: 15px;
+            background: #f4f4f4;
+            border-radius: 10px;
+            min-height: 100px;
+            text-align: left;
+            font-size: 18px;
+        }
+
+        .highlight {
+            color: #0077cc;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>JavaScript Class Inheritance</h1>
+
+        <p>
+            Click the button to see how one class inherits properties and methods from another class.
+        </p>
+
+        <button onclick="showInheritance()">
+            Show Inheritance Example
+        </button>
+
+        <div id="output"></div>
+    </div>
+
+    <script>
+
+        // Parent Class
+        class Animal {
+
+            // Constructor runs automatically
+            constructor(name) {
+                this.name = name;
+            }
+
+            // Method of parent class
+            speak() {
+                return `${this.name} makes a sound.`;
+            }
+        }
+
+        // Child Class inherits Animal class
+        class Dog extends Animal {
+
+            // Constructor of child class
+            constructor(name, breed) {
+
+                // super() calls parent constructor
+                super(name);
+
+                this.breed = breed;
+            }
+
+            // Child class method
+            bark() {
+                return `${this.name} is barking!`;
+            }
+        }
+
+        // Function runs on button click
+        function showInheritance() {
+
+            // Creating object of Dog class
+            let dog1 = new Dog("Rocky", "Golden Retriever");
+
+            // Display output
+            document.getElementById("output").innerHTML = `
+                <p><span class="highlight">Dog Name:</span> ${dog1.name}</p>
+
+                <p><span class="highlight">Breed:</span> ${dog1.breed}</p>
+
+                <p><span class="highlight">Inherited Method:</span>
+                ${dog1.speak()}</p>
+
+                <p><span class="highlight">Dog Method:</span>
+                ${dog1.bark()}</p>
+            `;
+        }
+
+    </script>
+
+</body>
+</html>
